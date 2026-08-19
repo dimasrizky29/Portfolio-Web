@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PORTFOLIO ARCHIVE • Dimas Rizky AF - Unity Lead Game Developer</title>
+  <meta name="description" content="Vibrant Portfolio Archive of Dimas Rizky AF - Unity Lead Game Developer & Game Programmer specializing in Multiplayer Netcode, VContainer MVP Architecture, and Mobile Performance.">
+  
+  <!-- Fonts V5.0: Outfit (UI/headings) + JetBrains Mono + Inconsolata (code/terminal/monospace)
+       OS system fonts (Cascadia Code, Consolas, Menlo) are loaded natively via CSS font-stack -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=JetBrains+Mono:wght@400;600;800&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top EXP Scroll Bar -->
+  <div class="exp-progress-container">
+    <div id="exp-progress-bar" class="exp-progress-bar"></div>
+  </div>
+
+  <!-- Initial Asset Preloader Screen -->
+  <div id="loader-screen" class="loader-overlay">
+    <div class="loader-box">
+      <div class="loader-status" id="loader-status-text">INITIALIZING GAME ENGINE &amp; RESOURCES...</div>
+      
+      <div class="loader-track-wrapper">
+        <div class="loader-track">
+          <div id="loader-fill" class="loader-fill"></div>
+        </div>
+        <div id="loader-percent" class="loader-percent">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Touch to Start Title Overlay Screen -->
+  <div id="start-screen" class="start-screen-overlay">
+    <canvas id="start-canvas" class="start-particle-canvas" aria-hidden="true"></canvas>
+    
+    <div class="start-box">
+      <div class="start-header-group">
+        <div class="start-title-name">DIMAS RIZKY AF</div>
+        <div class="start-subtitle-badge">GAME DEVELOPER &bull; PORTFOLIO</div>
+      </div>
+      
+      <button id="touch-to-start-btn" class="touch-to-start-btn roll-btn" aria-label="Press to start portfolio">
+        <span class="roll-btn-label">
+          <span class="roll-char" style="--i:0"><span class="char-top">P</span><span class="char-bot">P</span></span>
+          <span class="roll-char" style="--i:1"><span class="char-top">R</span><span class="char-bot">R</span></span>
+          <span class="roll-char" style="--i:2"><span class="char-top">E</span><span class="char-bot">E</span></span>
+          <span class="roll-char" style="--i:3"><span class="char-top">S</span><span class="char-bot">S</span></span>
+          <span class="roll-char" style="--i:4"><span class="char-top">S</span><span class="char-bot">S</span></span>
+          <span class="roll-char space" style="--i:5">&nbsp;</span>
+          <span class="roll-char" style="--i:6"><span class="char-top">T</span><span class="char-bot">T</span></span>
+          <span class="roll-char" style="--i:7"><span class="char-top">O</span><span class="char-bot">O</span></span>
+          <span class="roll-char space" style="--i:8">&nbsp;</span>
+          <span class="roll-char" style="--i:9"><span class="char-top">S</span><span class="char-bot">S</span></span>
+          <span class="roll-char" style="--i:10"><span class="char-top">T</span><span class="char-bot">T</span></span>
+          <span class="roll-char" style="--i:11"><span class="char-top">A</span><span class="char-bot">A</span></span>
+          <span class="roll-char" style="--i:12"><span class="char-top">R</span><span class="char-bot">R</span></span>
+          <span class="roll-char" style="--i:13"><span class="char-top">T</span><span class="char-bot">T</span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Pixel Curtain Container for Transition -->
+  <div id="pixel-curtain-container" class="pixel-curtain-container"></div>
+
+  <!-- Background Interactive Canvas &amp; Scanline Overlay -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="scanline-overlay"></div>
+
+  <!-- HUD Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <span class="logo-text text-cyan"><span class="text-pink">DIMAS</span>.DEV</span>
+        <div class="status-badge">
+          <div class="status-dot"></div>
+          <span>AVAILABLE FOR PROJECTS</span>
+        </div>
+      </div>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link" onclick="closeMenu()">ABOUT</a></li>
+        <li><a href="#projects" class="nav-link" onclick="closeMenu()">PROJECTS</a></li>
+        <li><a href="#skills" class="nav-link" onclick="closeMenu()">SKILLS</a></li>
+        <li><a href="#experience" class="nav-link" onclick="closeMenu()">EXPERIENCE</a></li>
+        <li><a href="#awards" class="nav-link" onclick="closeMenu()">AWARDS</a></li>
+        <li><a href="#minigame-section" class="nav-link" onclick="closeMenu()">ARCADE</a></li>
+      </ul>
+      
+      <div class="nav-controls">
+        <a href="#contact" class="nav-contact-btn btn-hud btn-hud-pink">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="width:14px;height:14px;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          CONTACT ME
+        </a>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tagline">INITIALIZING PLAYER ONE PROFILE</div>
+        <h1 class="hero-title">DIMAS RIZKY AF</h1>
+        
+        <div class="hero-typing-container">
+          <span id="hero-typing"></span>
+          <span class="typing-cursor"></span>
+        </div>
+        
+        <p class="hero-bio">
+          Unity Developer with <strong>4+ years of professional experience</strong> building and publishing diverse games across Casual, Action, Simulation, and Tycoon genres. Specialized in <strong>Modular Clean Architecture (MVP, VContainer DI)</strong>, <strong>Third-Party API &amp; SDK Integrations</strong>, and <strong>Mobile Performance Optimization</strong>.
+        </p>
+        
+        <div class="hero-cta">
+          <a href="#projects" class="btn-hud btn-hud-green">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S19.17 9 20 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+            EXPLORE PROJECTS
+          </a>
+          <a href="#contact" class="btn-hud btn-hud-pink">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            GET IN TOUCH
+          </a>
+        </div>
+      </div>
+      
+      <!-- Right Side HUD Player Card with Profile.png -->
+      <div class="hud-box hero-hud-card">
+        <!-- Three.js 3D Canvas (sits behind the stats) -->
+        <canvas id="hero-3d-canvas" aria-hidden="true"></canvas>
+        <div class="hud-card-header">
+          <span>DEVELOPER_PROFILE.JSON</span>
+        </div>
+
+        <div class="hero-profile-spotlight">
+          <div class="hero-avatar-wrapper">
+            <img src="assets/Profile.png" alt="Dimas Rizky AF" class="hero-avatar-img">
+          </div>
+          <div class="hero-profile-meta">
+            <div class="hero-profile-name">LEAD GAME DEVELOPER</div>
+            <div class="hero-profile-role text-cyan">SYSTEM ARCHITECT</div>
+          </div>
+        </div>
+        
+        <div class="hud-stats-stack">
+          <div class="hud-stat-row">
+            <div class="hud-stat-label">// EXPERIENCE</div>
+            <div class="hud-stat-val text-pink">4+ YEARS PRODUCTION</div>
+          </div>
+          <div class="hud-stat-row">
+            <div class="hud-stat-label">// PORTFOLIO</div>
+            <div class="hud-stat-val text-green">12 PUBLISHED TITLES</div>
+          </div>
+          <div class="hud-stat-row">
+            <div class="hud-stat-label">// ARCHITECTURE</div>
+            <div class="hud-stat-val text-cyan">VCONTAINER &bull; MVP &bull; AsmDef</div>
+          </div>
+          <div class="hud-stat-row">
+            <div class="hud-stat-label">// NETWORKING &amp; SDK</div>
+            <div class="hud-stat-val text-yellow">AWS GAMELIFT &bull; REST APIs &bull; IAP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal-up">ABOUT THE DEVELOPER</h2>
+      <p class="section-subtitle reveal-up">TECHNICAL PROFILE &amp; ARCHITECTURAL FOUNDATION</p>
+      
+      <div class="about-grid">
+        
+        <!-- Left Column: Photo HUD Frame -->
+        <div class="photo-hud-frame reveal-left">
+          <div class="photo-wrapper">
+            <img src="assets/background.jpg" alt="Dimas Rizky AF - Unity Lead Developer" loading="lazy">
+            <div class="photo-overlay-hud">
+              <span>HP: 100/100</span>
+              <span>MANA: 100/100</span>
+            </div>
+          </div>
+          <div class="about-photo-label">
+            <span class="about-photo-name">LEAD GAME DEVELOPER</span>
+            <span class="about-photo-role">4+ YEARS PRODUCTION EXP</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Description -->
+        <div class="reveal-right">
+          <div class="hud-box about-desc-box">
+            <p style="color: var(--text-main); font-size: 1rem; line-height: 1.8; margin-bottom: 1.2rem;">
+              Experienced Unity Developer with 4+ years managing the full game development lifecycle. Proven track record in building engaging casual gameplay mechanics, clean modular architecture (MVP with VContainer DI, AsmDef, Addressables), and integrating third-party APIs/SDKs (IAP, Google Play, HMS, Firebase, REST APIs).
+            </p>
+            <p style="color: var(--text-muted); line-height: 1.7;">
+              Extensive hands-on expertise in real-time multiplayer systems (AWS GameLift, FlexMatch, Netcode NGO, WebSockets) and low-level mobile performance optimization (zero-allocation loops, custom HLSL shaders, and memory profiling).
+            </p>
+          </div>
+
+          <!-- Quick Stats Row -->
+          <div class="about-quick-stats">
+            <div class="quick-stat-item hud-box">
+              <span class="quick-stat-num text-cyan">4+</span>
+              <span class="quick-stat-label">Years Exp</span>
+            </div>
+            <div class="quick-stat-item hud-box">
+              <span class="quick-stat-num text-pink">12+</span>
+              <span class="quick-stat-label">Games Published</span>
+            </div>
+            <div class="quick-stat-item hud-box">
+              <span class="quick-stat-num text-green">3</span>
+              <span class="quick-stat-label">Platforms</span>
+            </div>
+            <div class="quick-stat-item hud-box">
+              <span class="quick-stat-num text-yellow">1</span>
+              <span class="quick-stat-label">Award Won</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects / Quests Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title reveal-up">FEATURED PROJECTS</h2>
+      <p class="section-subtitle reveal-up">12 PUBLISHED COMMERCIAL &amp; INDIE TITLES • FILTER BY ARCHITECTURE &amp; COMPLEXITY</p>
+      
+      <!-- Filter & Sort Control Bar -->
+      <div class="projects-control-bar reveal-up">
+        <!-- Category Filter Tabs -->
+        <div class="project-filters" id="project-filters">
+          <button class="filter-btn active" data-filter="favorite">FLAGSHIPS &amp; FAVORITES</button>
+          <button class="filter-btn" data-filter="all">ALL TITLES (12)</button>
+          <button class="filter-btn" data-filter="Multiplayer">MULTIPLAYER &amp; NETCODE</button>
+          <button class="filter-btn" data-filter="Simulation">SIMULATION &amp; TYCOON</button>
+          <button class="filter-btn" data-filter="Action / Shooter">ACTION &amp; SHOOTER</button>
+        </div>
+        
+        <!-- Sort Control -->
+        <div class="project-sort-wrapper">
+          <label for="project-sort-select" class="sort-label">SORT:</label>
+          <select id="project-sort-select" class="project-sort-select" aria-label="Sort projects">
+            <option value="featured">Complexity &amp; Impact</option>
+            <option value="newest">Release Year (Newest)</option>
+            <option value="oldest">Release Year (Oldest)</option>
+            <option value="alpha">Title (A - Z)</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        
+        <!-- Project 1: Mon Tycoon (2026 - Lead Architecture) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="mon-tycoon" data-category="Simulation" data-favorite="true" data-year="2026" data-rank="1" tabindex="0" role="button" aria-label="View details for Mon Tycoon project">
+          <div class="project-thumb" style="background-image: url('assets/projects/mon_tycoon.webp'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge badge-flagship">FLAGSHIP</span>
+              <span class="project-badge">Mobile / PC • 2026</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Mon Tycoon</h3>
+            <p class="project-desc">3D creature management tycoon featuring dual-perspective camera controls (FPS &amp; Top-Down) and full VContainer DI architecture.</p>
+            <div class="project-tags">
+              <span class="tag-item">Lead Arch</span>
+              <span class="tag-item">VContainer (DI)</span>
+              <span class="tag-item">MVP</span>
+              <span class="tag-item">Multi-Scene</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Destiny of Heroes (2023 - Steam Tactical Shooter) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="destiny-of-heroes" data-category="Action / Shooter" data-favorite="true" data-year="2023" data-rank="2" tabindex="0" role="button" aria-label="View details for Destiny of Heroes project">
+          <div class="project-thumb" style="background-image: url('assets/projects/destiny_of_heroes.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge badge-flagship">FLAGSHIP</span>
+              <span class="project-badge">PC / Steam • 2023</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Destiny of Heroes</h3>
+            <p class="project-desc">Tactical top-down shooter set in 1942–1945 Indonesia, featuring characters with unique active combat skills and state machines.</p>
+            <div class="project-tags">
+              <span class="tag-item">Sole Programmer</span>
+              <span class="tag-item">Unity</span>
+              <span class="tag-item">State Machine</span>
+              <span class="tag-item">Custom Shaders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Hyper Legend (2025 - AWS GameLift PvP) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="hyper-legend" data-category="Multiplayer" data-favorite="true" data-year="2025" data-rank="3" tabindex="0" role="button" aria-label="View details for Hyper Legend project">
+          <div class="project-thumb" style="background-image: url('assets/projects/hyper_legend.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge badge-flagship">FLAGSHIP</span>
+              <span class="project-badge">Android PvP • 2025</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Hyper Legend</h3>
+            <p class="project-desc">Real-time multiplayer 3D fighting game featuring competitive PvP, arcade modes, and cloud server matchmaking.</p>
+            <div class="project-tags">
+              <span class="tag-item">Lead Dev</span>
+              <span class="tag-item">AWS GameLift</span>
+              <span class="tag-item">Netcode</span>
+              <span class="tag-item">REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Multiplayer Billiards (2025 - Headless Server) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="multiplayer-billiards" data-category="Multiplayer" data-favorite="true" data-year="2025" data-rank="4" tabindex="0" role="button" aria-label="View details for Multiplayer Billiards project">
+          <div class="project-thumb" style="background-image: url('assets/projects/multiplayer_billiard.webp'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge badge-flagship">FLAGSHIP</span>
+              <span class="project-badge">Mobile 1v1 • 2025</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Multiplayer Billiards</h3>
+            <p class="project-desc">Real-time 8-ball billiards on Mobile featuring 1v1 PvP, custom elastic physics, and AWS FlexMatch matchmaking.</p>
+            <div class="project-tags">
+              <span class="tag-item">Headless Server</span>
+              <span class="tag-item">FlexMatch</span>
+              <span class="tag-item">AWS GameLift</span>
+              <span class="tag-item">Physics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: My Farm Simulation (2023 - Economy & Cloud Save) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="my-farm-sim" data-category="Simulation" data-favorite="true" data-year="2023" data-rank="5" tabindex="0" role="button" aria-label="View details for My Farm Simulation project">
+          <div class="project-thumb" style="background-image: url('assets/projects/my_farm_sim.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge badge-flagship">FLAGSHIP</span>
+              <span class="project-badge">Android &amp; iOS • 2023</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">My Farm Simulation</h3>
+            <p class="project-desc">Mobile farm management simulation game featuring complex livestock raising, crop cultivation, and virtual economy tracking.</p>
+            <div class="project-tags">
+              <span class="tag-item">Solo Developer</span>
+              <span class="tag-item">Firebase</span>
+              <span class="tag-item">IAP</span>
+              <span class="tag-item">Economy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Gold Miner (2021 - Grid Strategy) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="gold-miner" data-category="Simulation" data-favorite="false" data-year="2021" data-rank="6" tabindex="0" role="button" aria-label="View details for Gold Miner project">
+          <div class="project-thumb" style="background-image: url('assets/projects/gold_miner.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">Android • 2021</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Gold Miner</h3>
+            <p class="project-desc">Natural resource mining strategy game where players place miners across a grid map to optimize gold extraction loops.</p>
+            <div class="project-tags">
+              <span class="tag-item">Grid Map Logic</span>
+              <span class="tag-item">Tycoon</span>
+              <span class="tag-item">APK Build</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Venus Infinity (2022 - Space Tycoon) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="venus-infinity" data-category="Simulation" data-favorite="false" data-year="2022" data-rank="7" tabindex="0" role="button" aria-label="View details for Venus Infinity project">
+          <div class="project-thumb" style="background-image: url('assets/projects/venus_infinity.jpg'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">Android • 2022</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Venus Infinity</h3>
+            <p class="project-desc">Sci-fi astronaut resource extraction tycoon game on planet Venus with real-time websocket server sync.</p>
+            <div class="project-tags">
+              <span class="tag-item">Resource Tycoon</span>
+              <span class="tag-item">WebSockets</span>
+              <span class="tag-item">3D Shaders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8: Shiba Hunter (2024 - NFC Mobile Action) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="shiba-hunter" data-category="Action / Shooter" data-favorite="false" data-year="2024" data-rank="8" tabindex="0" role="button" aria-label="View details for Shiba Hunter project">
+          <div class="project-thumb" style="background-image: url('assets/projects/shiba_hunter_sampul.webp'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">Android • 2024</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Shiba Hunter</h3>
+            <p class="project-desc">Fast-paced mobile action hunter game with custom enemy AI behaviors, wave spawning, and NFC hardware unlocking.</p>
+            <div class="project-tags">
+              <span class="tag-item">Action</span>
+              <span class="tag-item">NFC SDK</span>
+              <span class="tag-item">Enemy AI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9: Chips Domino (2023 - Online Board) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="chips-domino" data-category="Simulation" data-favorite="false" data-year="2023" data-rank="9" tabindex="0" role="button" aria-label="View details for Chips Domino project">
+          <div class="project-thumb" style="background-image: url('assets/projects/chips_domino_menu.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">Android • 2023</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Chips Domino</h3>
+            <p class="project-desc">Casual domino simulation game featuring online chip economy, room matching, and smooth table card animations.</p>
+            <div class="project-tags">
+              <span class="tag-item">Card Logic</span>
+              <span class="tag-item">WebSockets</span>
+              <span class="tag-item">AdMob</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 10: Pesulap Merah Adventure (2022 - 3D Combat) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="pesulap-merah" data-category="Action / Shooter" data-favorite="false" data-year="2022" data-rank="10" tabindex="0" role="button" aria-label="View details for Pesulap Merah Adventure project">
+          <div class="project-thumb" style="background-image: url('assets/projects/pesulap_merah.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">Android • 2022</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Pesulap Merah Adventure</h3>
+            <p class="project-desc">3D fighting adventure game featuring a rich combat loop (Attack combos, Jump, Defence, Healing, and Spellcasting).</p>
+            <div class="project-tags">
+              <span class="tag-item">3D Fighting</span>
+              <span class="tag-item">Combat System</span>
+              <span class="tag-item">Enemy AI System</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 11: Rush Hero (2024 - Runner & HMS) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="rush-hero" data-category="Action / Shooter" data-favorite="false" data-year="2024" data-rank="11" tabindex="0" role="button" aria-label="View details for Rush Hero project">
+          <div class="project-thumb" style="background-image: url('assets/projects/rush_hero_cover.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">Android / Itch • 2024</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Rush Hero</h3>
+            <p class="project-desc">Endless dimensional runner action game set in a futuristic energy-depleted world. Released on Itch.io &amp; Huawei AppGallery.</p>
+            <div class="project-tags">
+              <span class="tag-item">Unity 2D/3D</span>
+              <span class="tag-item">Huawei AppGallery</span>
+              <span class="tag-item">Touch Controls</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 12: Zuma Infinity (2021 - WebGL Splines) -->
+        <div class="hud-box project-card reveal-scale" data-project-id="zuma-infinity" data-category="Action / Shooter" data-favorite="false" data-year="2021" data-rank="12" tabindex="0" role="button" aria-label="View details for Zuma Infinity project">
+          <div class="project-thumb" style="background-image: url('assets/projects/zuma_infinity.png'); background-size: cover; background-position: center;">
+            <div class="project-thumb-overlay">
+              <span class="project-badge">WebGL • 2021</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Zuma Infinity</h3>
+            <p class="project-desc">Classic marble shooter mechanics recreated for WebGL browsers with custom bezier curve pathing and combo scoring systems.</p>
+            <div class="project-tags">
+              <span class="tag-item">WebGL Engine</span>
+              <span class="tag-item">Bezier Splines</span>
+              <span class="tag-item">Chain Combos</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section: 3 High-Impact Architectural Domains -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title reveal-up">TECHNICAL ARCHITECTURE &amp; SKILL TREE</h2>
+      <p class="section-subtitle reveal-up">SENIOR &amp; LEAD LEVEL COMPETENCIES CATEGORIZED BY ENGINEERING DOMAIN</p>
+      
+      <div class="skills-grid">
+        
+        <!-- Track 01: Core Architecture & Clean Systems -->
+        <div class="hud-box skill-card reveal-left">
+          <div class="skill-category-badge text-cyan">TRACK 01</div>
+          <h3 class="skill-category-title">CORE UNITY &amp; ARCHITECTURE</h3>
+          <p class="skill-category-desc">Modular clean architecture, dependency injection, and scalable system design.</p>
+          <ul class="skill-list">
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">VContainer (DI) &amp; MVP Architecture</span>
+                <span class="mono text-cyan">95%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="95%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Assembly Definitions (.asmdef) Modularization</span>
+                <span class="mono text-cyan">92%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="92%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Addressables &amp; Remote Asset Pipelines</span>
+                <span class="mono text-cyan">92%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="92%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">UniTask &amp; High-Performance Async Workflows</span>
+                <span class="mono text-cyan">90%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="90%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">State Machines &amp; ScriptableObject Architecture</span>
+                <span class="mono text-cyan">94%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="94%"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Track 02: Networking, API & SDK Integration -->
+        <div class="hud-box skill-card reveal-up">
+          <div class="skill-category-badge text-yellow">TRACK 02</div>
+          <h3 class="skill-category-title">NETWORKING, API &amp; SDK INTEGRATION</h3>
+          <p class="skill-category-desc">Distributed game servers, third-party SDKs, RESTful backend APIs, and real-time multiplayer.</p>
+          <ul class="skill-list">
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Third-Party SDKs (IAP, Google Play, HMS, AdMob)</span>
+                <span class="mono text-yellow">92%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="92%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Backend RESTful APIs &amp; WebSockets Sync</span>
+                <span class="mono text-yellow">94%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="94%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">AWS GameLift Fleets &amp; Amazon FlexMatch</span>
+                <span class="mono text-yellow">88%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="88%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Unity Netcode (NGO) &amp; Photon Fusion</span>
+                <span class="mono text-yellow">90%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="90%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Firebase Cloud Data &amp; Remote Config</span>
+                <span class="mono text-yellow">92%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="92%"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Track 03: Graphics, Optimization & Production -->
+        <div class="hud-box skill-card reveal-right">
+          <div class="skill-category-badge text-green">TRACK 03</div>
+          <h3 class="skill-category-title">GRAPHICS, OPTIMIZATION &amp; DEVOPS</h3>
+          <p class="skill-category-desc">Custom shaders, low-level mobile profiling, store SDKs, and build automation.</p>
+          <ul class="skill-list">
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">HLSL Custom Shaders &amp; URP Pipeline</span>
+                <span class="mono text-green">88%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="88%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Zero-Alloc Memory Profiling (IL2CPP)</span>
+                <span class="mono text-green">94%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="94%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Draw Call Batching &amp; GPU Instancing</span>
+                <span class="mono text-green">90%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="90%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">Mobile Store SDKs (Google Play, HMS, IAP)</span>
+                <span class="mono text-green">92%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="92%"></div></div>
+            </li>
+            <li>
+              <div class="skill-item-row">
+                <span class="skill-name">CI/CD Build Automation &amp; GitFlow</span>
+                <span class="mono text-green">94%</span>
+              </div>
+              <div class="skill-level-bar"><div class="skill-level-fill" data-level="94%"></div></div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title reveal-up">EXPERIENCE LOGS</h2>
+      <p class="section-subtitle reveal-up">CAREER HISTORY & STUDIO ROLES</p>
+      
+      <div class="timeline">
+        
+        <!-- Experience 1 -->
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="hud-box timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Lead Game Developer</h3>
+                <span class="timeline-company">Yatech Studio — Kediri, Indonesia</span>
+              </div>
+              <span class="timeline-date">MAY 2023 - PRESENT</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Coordinated cross-functional teams (3D, UI/UX, Backend) managing development from core gameplay systems to final store release.</li>
+              <li>Initiated MVP & VContainer (DI) architecture to decouple UI from gameplay logic, enabling parallel workflows.</li>
+              <li>Engineered real-time multiplayer systems using Unity Netcode and AWS GameLift dedicated servers.</li>
+              <li>Optimized mobile performance using Addressables, AsmDef, UniTask, Object Pooling, and LOD.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="hud-box timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Game Developer</h3>
+                <span class="timeline-company">Yatech Studio — Kediri, Indonesia</span>
+              </div>
+              <span class="timeline-date">AUG 2021 - MAY 2023</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Developed and released multiple game titles across various genres from initial prototype to store submission.</li>
+              <li>Integrated third-party SDKs including Firebase, WebSockets, Web3 APIs, AdMob, and social sign-in.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="hud-box timeline-content">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">Game Programmer</h3>
+                <span class="timeline-company">Nexvel Entertainment — Bali, Indonesia (Remote)</span>
+              </div>
+              <span class="timeline-date">SEP 2023 - APR 2025</span>
+            </div>
+            <ul class="timeline-bullets">
+              <li>Ported Windows Steam games to Android, reworking UI and touch screen controls.</li>
+              <li>Developed new war-themed top-down shooter game (Destiny of Heroes) for Steam.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements & Certifications Section (REAL CERTIFICATE PHOTOS) -->
+  <section id="awards">
+    <div class="container">
+      <h2 class="section-title reveal-up">CERTIFICATIONS & AWARDS</h2>
+      <p class="section-subtitle reveal-up">HONORS & OFFICIAL CERTIFICATE CREDENTIALS</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        
+        <!-- Certificate 1: Unity Certified Associate -->
+        <div class="hud-box cert-card reveal-left" tabindex="0" role="button" title="Click to celebrate!" aria-label="Unity Certified Associate Certificate - Click to celebrate">
+          <div class="cert-img-wrapper">
+            <img src="assets/Game Developer certificate.png" alt="Unity Certified Associate Certificate - Dimas Rizky AF" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="mono text-cyan" style="font-size: 0.75rem;">SEPTEMBER 2024</span>
+              <span class="mono text-pink" style="font-size: 0.75rem;border:1px solid rgba(236,72,153,0.3);padding:2px 8px;border-radius:10px;">VERIFIED CREDENTIAL</span>
+            </div>
+            <h3 style="font-size: 1.5rem; margin: 0.5rem 0; color: #fff;">Unity Certified Associate: Game Developer</h3>
+            <p style="color: var(--text-muted);">Official Credential issued by Unity Technologies & Google Play.</p>
+          </div>
+        </div>
+
+        <!-- Certificate 2: Most Favorite Game Award -->
+        <div class="hud-box cert-card reveal-right" tabindex="0" role="button" title="Click to celebrate!" aria-label="Most Favorite Game Award - Click to celebrate">
+          <div class="cert-img-wrapper">
+            <img src="assets/dimas_rizky_alimu_award_certificate.jpg" alt="Indigo Most Favorite Game Award - Dimas Rizky AF" loading="lazy">
+          </div>
+          <div style="padding: 1.5rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="mono text-green" style="font-size: 0.75rem;">AUGUST 2020</span>
+              <span class="mono text-pink" style="font-size: 0.75rem;border:1px solid rgba(236,72,153,0.3);padding:2px 8px;border-radius:10px;">OFFICIAL AWARD</span>
+            </div>
+            <h3 style="font-size: 1.5rem; margin: 0.5rem 0; color: #fff;">Most Favorite Game Award</h3>
+            <p style="color: var(--text-muted);">Indigo Game Startup Incubation Official Competition Award.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Arcade Mini Game Section: Galaxy Defender (Easy Mode) -->
+  <section id="minigame-section">
+    <div class="container">
+      <h2 class="section-title">ARCADE CENTER: GALAXY DEFENDER</h2>
+      <p class="section-subtitle">RELAXED MODE: SHOOT DOWN INVADERS & BEAT THE HIGH SCORE (LIVES REDUCE ONLY ON DIRECT ENEMY HIT!)</p>
+      
+      <div class="hud-box minigame-container">
+        <div class="minigame-stats-bar">
+          <div>SCORE: <span id="score-val" class="text-cyan">0</span></div>
+          <div>HIGH SCORE: <span id="high-score-val" class="text-green">0</span></div>
+          <div>LIVES: <span id="lives-val" style="display:inline-flex;gap:4px;vertical-align:middle;"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--accent-pink);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--accent-pink);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--accent-pink);"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span></div>
+        </div>
+        
+        <div id="minigame-canvas-wrapper">
+          <canvas id="minigame-canvas" width="700" height="360"></canvas>
+        </div>
+        
+        <div style="display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap;">
+          <button id="start-minigame-btn" class="btn-hud btn-hud-pink">START GALAXY SHOOTER</button>
+        </div>
+
+        <div class="touch-controls">
+          <button id="btn-touch-left" class="touch-btn">&lt; LEFT</button>
+          <button id="btn-touch-fire" class="touch-btn" style="background: rgba(236, 72, 153, 0.2); border-color: var(--accent-pink); color: var(--accent-pink);">FIRE LASER</button>
+          <button id="btn-touch-right" class="touch-btn">RIGHT &gt;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Links Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="hud-box contact-card reveal-up">
+        <h2 class="section-title" style="margin-bottom: 0;">READY TO WORK TOGETHER?</h2>
+        <p style="color: var(--text-muted); max-width: 680px; margin: 0 auto; text-align: center;">
+          Available for Unity Game Development, Third-Party API/SDK Integrations, and Multiplayer Architecture Consulting.
+        </p>
+        
+        <div class="contact-hud-grid">
+          
+          <!-- Left Panel: Direct Channels & Download CV -->
+          <div class="contact-card-panel">
+            <div class="contact-panel-title">
+              <span>DIRECT CHANNELS</span>
+              <span class="text-cyan mono">GET_IN_TOUCH</span>
+            </div>
+            
+            <div class="contact-action-list">
+              <a href="assets/Dimas_Rizky_CV.pdf" target="_blank" download="Dimas_Rizky_CV.pdf" class="btn-hud btn-hud-green btn-hud-cv-hero">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                DOWNLOAD FULL CV (PDF)
+              </a>
+
+              <a href="mailto:dimasrizkyaf@gmail.com" class="btn-hud">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                EMAIL: dimasrizkyaf@gmail.com
+              </a>
+
+              <a href="https://www.linkedin.com/in/dimas-rizky-48855a237" target="_blank" rel="noopener noreferrer" class="btn-hud btn-hud-secondary">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                LINKEDIN PROFILE
+              </a>
+
+              <a href="https://github.com/dimasrizky29" target="_blank" rel="noopener noreferrer" class="btn-hud btn-hud-secondary">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GITHUB REPOSITORY
+              </a>
+
+              <a href="https://dimas-rizky.itch.io/" target="_blank" rel="noopener noreferrer" class="btn-hud btn-hud-pink">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3.24 3.75c-.6 0-1.08.48-1.08 1.08v.75c0 .3.12.57.32.77.38.38 1.04.53 1.7.53 1.16 0 2.1-.53 2.1-1.18V4.83c0-.6-.48-1.08-1.08-1.08H3.24zm17.52 0c-.6 0-1.08.48-1.08 1.08v.87c0 .65.94 1.18 2.1 1.18.66 0 1.32-.15 1.7-.53.2-.2.32-.47.32-.77v-.75c0-.6-.48-1.08-1.08-1.08h-1.96zm-9.36 1.8a2.7 2.7 0 00-2.7 2.7v.9h10.8v-.9a2.7 2.7 0 00-2.7-2.7h-5.4zm-6.3 3.6c-1.35 0-2.43 1.08-2.43 2.43v5.4c0 1.35 1.08 2.43 2.43 2.43h13.86c1.35 0 2.43-1.08 2.43-2.43v-5.4c0-1.35-1.08-2.43-2.43-2.43H5.1zm2.34 2.7h1.8v1.8h-1.8v-1.8zm11.7 0h1.8v1.8h-1.8v-1.8z"/></svg>
+                ITCH.IO PORTFOLIO
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Panel: Professional Summary & Flexibility -->
+          <div class="contact-card-panel">
+            <div class="contact-panel-title">
+              <span>COLLABORATION SPECS</span>
+              <span class="text-green mono">FLEXIBLE</span>
+            </div>
+            
+            <div class="contact-specs-list">
+              <div class="contact-spec-row">
+                <span class="contact-spec-label">AVAILABILITY</span>
+                <span class="contact-spec-val text-green">OPEN FOR OPPORTUNITIES</span>
+              </div>
+              <div class="contact-spec-row">
+                <span class="contact-spec-label">WORK ENGAGEMENT</span>
+                <span class="contact-spec-val text-yellow">REMOTE / CONTRACT / FULL-TIME</span>
+              </div>
+              <div class="contact-spec-row">
+                <span class="contact-spec-label">SPECIALIZATIONS</span>
+                <span class="contact-spec-val text-cyan">GAMEPLAY • API &amp; SDK • CLEAN ARCH</span>
+              </div>
+              <div class="contact-spec-row">
+                <span class="contact-spec-label">PRODUCTION EXP</span>
+                <span class="contact-spec-val text-pink">4+ YEARS FULL LIFECYCLE</span>
+              </div>
+              <div class="contact-spec-row">
+                <span class="contact-spec-label">COMMUNICATION</span>
+                <span class="contact-spec-val text-green">&lt; 24 HOURS RESPONSE</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="copyright-text">© 2026 Dimas Rizky AF. All rights reserved.</div>
+      <div>PORTFOLIO ARCHIVE V5.0 • POWERED BY VANILLA HTML/CSS/JS & GAME ENGINE SPIRIT</div>
+    </div>
+  </footer>
+
+  <!-- Modal Component for Project Details -->
+  <div id="project-modal" class="modal-backdrop">
+    <div class="hud-box modal-container">
+      <button id="modal-close" class="modal-close" aria-label="Close modal">✕</button>
+      <h2 id="modal-title" class="modal-title">Project Title</h2>
+      
+      <div class="modal-meta">
+        <span id="modal-role" class="text-cyan">Role</span>
+        <span>•</span>
+        <span id="modal-platform">Platform</span>
+        <span>•</span>
+        <span id="modal-year" class="text-pink">Year</span>
+      </div>
+      
+      <!-- Media Tabs (Images / Stream Video) -->
+      <div id="modal-media-tabs" class="modal-media-tabs"></div>
+
+      <div class="modal-preview-wrapper">
+        <div id="modal-preview" class="modal-image-preview">
+          <button id="modal-play-overlay" class="video-play-overlay-btn" type="button">
+            ▶ STREAM VIDEO GAMEPLAY
+          </button>
+        </div>
+        <div id="modal-video-container" class="modal-video-container"></div>
+      </div>
+      
+      <!-- Section 1: Overview -->
+      <div class="modal-section">
+        <h4 class="modal-section-title">GAME OVERVIEW</h4>
+        <p id="modal-desc" class="modal-description"></p>
+      </div>
+
+      <!-- Section: Gallery / Additional Screenshots -->
+      <div class="modal-section" id="modal-gallery-section">
+        <h4 class="modal-section-title">SCREENSHOTS & GAMEPLAY GALLERY</h4>
+        <div id="modal-gallery" class="modal-gallery-grid"></div>
+      </div>
+      
+      <!-- Section 2: What I Built / Engineered -->
+      <div class="modal-section">
+        <h4 class="modal-section-title">WHAT I ENGINEERED & IMPLEMENTED</h4>
+        <ul id="modal-highlights" class="modal-list"></ul>
+      </div>
+
+      <!-- Section 3: Collaboration & Production -->
+      <div class="modal-section" id="modal-collab-section">
+        <h4 class="modal-section-title">COLLABORATION & PRODUCTION</h4>
+        <p id="modal-collab" class="modal-body-text"></p>
+      </div>
+
+      <!-- Section 4: Key Takeaways / Technical Growth -->
+      <div class="modal-section" id="modal-takeaway-section">
+        <h4 class="modal-section-title">KEY TAKEAWAYS & TECHNICAL GROWTH</h4>
+        <p id="modal-takeaway" class="modal-body-text text-takeaway"></p>
+      </div>
+
+      <!-- Section 5: Tools Used -->
+      <div class="modal-section" id="modal-tools-section">
+        <h4 class="modal-section-title">TOOLS USED</h4>
+        <div id="modal-tools" class="project-tags"></div>
+      </div>
+      
+      <!-- Section 6: Tech Stack & Architecture -->
+      <div class="modal-section">
+        <h4 class="modal-section-title">TECH STACK & ARCHITECTURE</h4>
+        <div id="modal-tech" class="project-tags"></div>
+      </div>
+      
+      <div id="modal-actions" class="modal-actions">
+        <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-hud btn-hud-green">VIEW PROJECT LINK</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Audio HUD Player Overlay (Bottom-Right Widget) -->
+  <div class="audio-player-widget" id="audio-widget">
+    <div class="audio-widget-info">
+      <div class="audio-eq-bars" id="audio-eq">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="audio-widget-text">
+        <span class="audio-widget-label">SOUNDTRACK</span>
+        <span class="audio-widget-title">8-BIT CYBER RETRO</span>
+      </div>
+    </div>
+    <div class="audio-widget-controls">
+      <div class="audio-switch-group">
+        <span class="audio-switch-label">BGM</span>
+        <button id="bgm-toggle" class="hud-switch active" role="switch" aria-checked="true" aria-label="Toggle BGM Audio" title="Toggle BGM Sound">
+          <span class="hud-switch-thumb"></span>
+        </button>
+      </div>
+      <div class="audio-switch-group">
+        <span class="audio-switch-label">SFX</span>
+        <button id="sfx-toggle" class="hud-switch active" role="switch" aria-checked="true" aria-label="Toggle SFX Audio" title="Toggle SFX Sound">
+          <span class="hud-switch-thumb"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CDN Libraries (Planning V5.0 Tech Stack) -->
+  <!-- Three.js r160 — 3D Engine -->
+  <script src="https://unpkg.com/three@0.160.1/build/three.min.js"></script>
+  <!-- GSAP 3.12 + ScrollTrigger — UI Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- canvas-confetti — 2D FX & Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
