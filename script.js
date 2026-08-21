@@ -662,7 +662,7 @@ const projectsData = {
     role: "Unity Programmer (Sole Programmer)",
     year: "2023",
     platform: "PC (Steam)",
-    coverImage: "assets/projects/destiny_of_heroes.png",
+    coverImage: "assets/projects/destiny_of_heroes.webp",
     bgGradient: "linear-gradient(135deg, #1f2937, #111827)",
     videos: [
       { label: "GAMEPLAY VIDEO", type: "drive", src: "https://drive.google.com/file/d/1ou9V18eDUllZ4z8SZ0O7uQWs_JUqviUl/preview" }
@@ -712,7 +712,7 @@ const projectsData = {
     role: "Solo Game Developer",
     year: "2023",
     platform: "Android & iOS",
-    coverImage: "assets/projects/my_farm_sim.png",
+    coverImage: "assets/projects/my_farm_sim.webp",
     bgGradient: "linear-gradient(135deg, #065f46, #047857)",
     videos: [],
     toolsUsed: ["Unity Game Engine", "Firebase", "In-App Purchases (IAP)", "C#", "Custom Shaders"],
@@ -735,8 +735,8 @@ const projectsData = {
     role: "Lead Game Developer & Core Programmer",
     year: "2025",
     platform: "Android & iOS",
-    coverImage: "assets/projects/hyper_legend.png",
-    screenshots: ["assets/projects/hyper_legend.png", "assets/projects/hyper_legend_lobby.png"],
+    coverImage: "assets/projects/hyper_legend.webp",
+    screenshots: ["assets/projects/hyper_legend.webp", "assets/projects/hyper_legend_lobby.webp"],
     bgGradient: "linear-gradient(135deg, #991b1b, #7f1d1d)",
     videos: [
       { label: "FULL GAMEPLAY", type: "drive", src: "https://drive.google.com/file/d/1fZYH-40DJzYQk9iirCgMzUGQ5VaLH9Mt/preview" },
@@ -764,7 +764,7 @@ const projectsData = {
     year: "2025",
     platform: "Android & iOS",
     coverImage: "assets/projects/multiplayer_billiard.webp",
-    screenshots: ["assets/projects/multiplayer_billiard.webp", "assets/projects/multiplayer_billiard_bot_system.png"],
+    screenshots: ["assets/projects/multiplayer_billiard.webp", "assets/projects/multiplayer_billiard_bot_system.webp"],
     bgGradient: "linear-gradient(135deg, #1e3a8a, #1e40af)",
     videos: [
       { label: "GAMEPLAY DEMO", type: "drive", src: "https://drive.google.com/file/d/1oiXMTRlpEMo4C1fQAXiRonEZ1C8J7ugw/preview" },
@@ -790,8 +790,8 @@ const projectsData = {
     role: "Unity Developer",
     year: "2021",
     platform: "Android & Itch.io",
-    coverImage: "assets/projects/rush_hero_cover.png",
-    screenshots: ["assets/projects/rush_hero_cover.png", "assets/projects/RushHeroes_Screenshot 2025-06-16 230624.png"],
+    coverImage: "assets/projects/rush_hero_cover.webp",
+    screenshots: ["assets/projects/rush_hero_cover.webp", "assets/projects/RushHeroes_Screenshot 2025-06-16 230624.webp"],
     bgGradient: "linear-gradient(135deg, #1e293b, #0f172a)",
     videos: [],
     toolsUsed: ["Unity Game Engine", "Huawei AppGallery SDK", "Itch.io Distribution", "C#"],
@@ -814,8 +814,8 @@ const projectsData = {
     role: "Solo Unity Developer",
     year: "2024",
     platform: "Android",
-    coverImage: "assets/projects/gold_miner.png",
-    screenshots: ["assets/projects/gold_miner.png", "assets/projects/gold_miner_gameplay.png"],
+    coverImage: "assets/projects/gold_miner.webp",
+    screenshots: ["assets/projects/gold_miner.webp", "assets/projects/gold_miner_gameplay.webp"],
     bgGradient: "linear-gradient(135deg, #854d0e, #713f12)",
     videos: [
       { label: "GAMEPLAY PROTOTYPE", type: "drive", src: "https://drive.google.com/file/d/18ZmVEZJW4n14_dvrQns6lF6Ncj9OQZif/preview" }
@@ -840,10 +840,10 @@ const projectsData = {
     year: "2023",
     platform: "Android",
     coverImage: "assets/projects/shiba_hunter_sampul.webp",
-    screenshots: ["assets/projects/shiba_hunter_sampul.webp", "assets/projects/shiba_hunter.png"],
+    screenshots: ["assets/projects/shiba_hunter_sampul.webp", "assets/projects/shiba_hunter.webp"],
     bgGradient: "linear-gradient(135deg, #064e3b, #022c22)",
     videos: [
-      { label: "GAMEPLAY STREAM", type: "mp4", src: "assets/projects/shiba_hunter_gameplay.mp4" }
+      { label: "GAMEPLAY DEMO", type: "mp4", src: "https://file.notion.com/f/f/20068283-c4de-4522-a6a4-695c2be5ff5e/d6c5c16a-c649-4f1e-a7f8-b505131073ac/Screen_Recording_2025-06-15_132041.mp4?table=block&id=21333c73-ef0a-807b-a81c-d971bafd4616&spaceId=20068283-c4de-4522-a6a4-695c2be5ff5e&expirationTimestamp=1787313600000&signature=4JrG9-ZEbna8Xg4w-JSgUVWoRGJEC3kFZK2zhEsDDnA&downloadName=Screen+Recording+2025-06-15+132041.mp4" }
     ],
     toolsUsed: ["Unity Game Engine", "Near-Field Communication (NFC)", "In-App Purchases (IAP)", "C#", "Custom Shaders"],
     tech: ["Unity", "C#", "Mobile Touch Controls", "Enemy AI Behavior", "Particle FX"],
@@ -870,7 +870,7 @@ const projectsData = {
     coverImage: "assets/projects/zuma_infinity.png",
     bgGradient: "linear-gradient(135deg, #1e1b4b, #312e81)",
     videos: [
-      { label: "GAMEPLAY STREAM", type: "mp4", src: "assets/projects/zuma_infinity_gameplay.mp4" }
+      { label: "GAMEPLAY DEMO", type: "mp4", src: "https://file.notion.com/f/f/20068283-c4de-4522-a6a4-695c2be5ff5e/32d2662d-8d76-4c4b-9a39-ad547a8180ee/Recording_2025-06-15_024829.mp4?table=block&id=21233c73-ef0a-803c-888a-d6241c3e5fca&spaceId=20068283-c4de-4522-a6a4-695c2be5ff5e&expirationTimestamp=1787313600000&signature=zAv_iHlrnX8Pw3lX7sVw0H1bGK5pM0pc-hFe1nhc7Cw&downloadName=Recording+2025-06-15+024829.mp4" }
     ],
     toolsUsed: ["Unity WebGL", "MetaMask (Web3 SDK)", "Bezier Spline Curves", "C#"],
     tech: ["Unity", "WebGL", "Bezier Spline Curves", "Combo Reaction System", "Optimization"],
@@ -891,19 +891,19 @@ const projectsData = {
     role: "Unity Developer",
     year: "2022",
     platform: "Android",
-    coverImage: "assets/projects/chips_domino_menu.png",
+    coverImage: "assets/projects/chips_domino_menu.webp",
     screenshots: [
-      "assets/projects/chips_domino_menu.png",
-      "assets/projects/chips_domino_Login.png",
-      "assets/projects/chips_domino_vs.png",
-      "assets/projects/chips_domino_jackpot.png",
-      "assets/projects/chips_domino_win.png",
-      "assets/projects/chips_domino_gameplay1.png",
-      "assets/projects/chips_domino_gameplay2.png",
-      "assets/projects/chips_domino_gameplay3.png",
-      "assets/projects/chips_domino_gameplay4.png",
-      "assets/projects/chips_domino_gameplay5.png",
-      "assets/projects/chips_domino_editor.png"
+      "assets/projects/chips_domino_menu.webp",
+      "assets/projects/chips_domino_Login.webp",
+      "assets/projects/chips_domino_vs.webp",
+      "assets/projects/chips_domino_jackpot.webp",
+      "assets/projects/chips_domino_win.webp",
+      "assets/projects/chips_domino_gameplay1.webp",
+      "assets/projects/chips_domino_gameplay2.webp",
+      "assets/projects/chips_domino_gameplay3.webp",
+      "assets/projects/chips_domino_gameplay4.webp",
+      "assets/projects/chips_domino_gameplay5.webp",
+      "assets/projects/chips_domino_editor.webp"
     ],
     bgGradient: "linear-gradient(135deg, #374151, #1f2937)",
     videos: [],
@@ -929,12 +929,13 @@ const projectsData = {
     coverImage: "assets/projects/pesulap_merah.png",
     bgGradient: "linear-gradient(135deg, #991b1b, #450a0a)",
     videos: [
-      { label: "GAMEPLAY SHOWCASE", type: "youtube", src: "https://www.youtube-nocookie.com/embed/a22EFLaXkHg?autoplay=1" }
+      { label: "GAMEPLAY SHOWCASE", type: "youtube", src: "https://www.youtube.com/embed/a22EFLaXkHg?autoplay=1&enablejsapi=1&rel=0" }
     ],
     toolsUsed: ["Unity Game Engine", "In-App Purchases (IAP)", "AdMob", "C#", "Custom Shaders"],
     tech: ["Unity 3D", "C#", "Combat System", "Enemy AI System", "IAP", "AdMob"],
     links: [
-      { text: "VIEW ON ITCH.IO", url: "https://dimas-rizky.itch.io/pesulap-merah-adventure", class: "btn-hud btn-hud-green" }
+      { text: "VIEW ON ITCH.IO", url: "https://dimas-rizky.itch.io/pesulap-merah-adventure", class: "btn-hud btn-hud-green" },
+      { text: "WATCH ON YOUTUBE", url: "https://www.youtube.com/watch?v=a22EFLaXkHg", class: "btn-hud btn-hud-pink" }
     ],
     description: "Pedukunan palsu di Indonesia semakin merajalela dan banyak masyarakat yang dirugikan oleh tipu muslihat. Pesulap Merah berinisiatif menumpas dukun-dukun sesat tersebut. A 3D fighting adventure game featuring a full combat system: Attack combos, Jump maneuvers, Defence shields, Healing, and Spellcasting against multiple enemy and boss encounters.",
     highlights: [
@@ -951,7 +952,7 @@ const projectsData = {
     role: "Unity Developer",
     year: "2024",
     platform: "Android",
-    coverImage: "assets/projects/venus_infinity.jpg",
+    coverImage: "assets/projects/venus_infinity.webp",
     bgGradient: "linear-gradient(135deg, #d97706, #92400e)",
     videos: [],
     toolsUsed: ["Unity Game Engine", "WebSocket Networking", "C#", "Custom Shaders", "3D Animation"],
@@ -983,17 +984,17 @@ function initPreloader() {
     'assets/background.jpg',
     'assets/Game Developer certificate.png',
     'assets/dimas_rizky_alimu_award_certificate.jpg',
-    'assets/projects/destiny_of_heroes.png',
+    'assets/projects/destiny_of_heroes.webp',
     'assets/projects/mon_tycoon.webp',
-    'assets/projects/my_farm_sim.png',
-    'assets/projects/hyper_legend.png',
+    'assets/projects/my_farm_sim.webp',
+    'assets/projects/hyper_legend.webp',
     'assets/projects/multiplayer_billiard.webp',
     'assets/projects/pesulap_merah.png',
-    'assets/projects/rush_hero_cover.png',
+    'assets/projects/rush_hero_cover.webp',
     'assets/projects/shiba_hunter_sampul.webp',
-    'assets/projects/venus_infinity.jpg',
-    'assets/projects/chips_domino_menu.png',
-    'assets/projects/gold_miner.png',
+    'assets/projects/venus_infinity.webp',
+    'assets/projects/chips_domino_menu.webp',
+    'assets/projects/gold_miner.webp',
     'assets/projects/zuma_infinity.png'
   ];
 
@@ -1245,7 +1246,6 @@ class GSAPAnimations {
     if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
     try { this._heroEntrance(); } catch(e) { console.warn('GSAP hero entrance error:', e); }
     try { this._scrollReveal(); } catch(e) { console.warn('GSAP scroll reveal error:', e); }
-    try { this._skillBars(); }    catch(e) { console.warn('GSAP skill bars error:', e); }
   }
 
   _heroEntrance() {
@@ -1284,16 +1284,6 @@ class GSAPAnimations {
     } catch (e) {
       console.warn('ScrollTrigger batch error:', e);
     }
-  }
-
-  _skillBars() {
-    if (typeof ScrollTrigger === 'undefined') return;
-    document.querySelectorAll('.skill-level-fill').forEach(bar => {
-      gsap.fromTo(bar, { width: '0%' }, {
-        width: bar.dataset.level || '0%', duration: 1.3, ease: 'power2.out',
-        scrollTrigger: { trigger: bar, start: 'top 95%', toggleActions: 'play none none none' }
-      });
-    });
   }
 }
 
@@ -1614,7 +1604,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       } else {
         modalVideoContainer.innerHTML = `
-          <iframe class="modal-video-iframe" src="${vid.src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe class="modal-video-iframe" src="${vid.src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
         `;
       }
     }
@@ -1865,18 +1855,6 @@ document.addEventListener('DOMContentLoaded', () => {
       konamiIndex = 0;
     }
   });
-
-  // ── Skill bar fill (IntersectionObserver — robust fallback) ──
-  const skillFills = document.querySelectorAll('.skill-level-fill');
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.width = entry.target.dataset.level;
-        skillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  skillFills.forEach(fill => skillObserver.observe(fill));
 
   // ── Scroll Reveal Engine (IntersectionObserver + Direct Viewport Checks) ──
   const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale');
